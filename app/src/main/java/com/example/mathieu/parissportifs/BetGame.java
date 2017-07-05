@@ -77,10 +77,13 @@ public class BetGame extends AppCompatActivity implements View.OnClickListener {
         awayTeam.setText(newGame.getmAwayTeam());
         // Appel de la classe switchLogo et de la methode
 
+        if (newGame.getmMinute()<10){
+            hour.setText(String.valueOf(newGame.getmHour()) + " : 0" + String.valueOf(newGame.getmMinute()));
+        } else {
+            hour.setText(String.valueOf(newGame.getmHour()) + " : " + String.valueOf(newGame.getmMinute()));
+        }
 
-        hour.setText(String.valueOf(newGame.getmHour())+ " : "+String.valueOf(newGame.getmMinute()));
-
-
+        SwitchLogoModel.switchLogo(homeTeam, imageViewHomeTeam, awayTeam , imageViewAwayTeam);
 
         numberPickerHome = (NumberPicker) findViewById(R.id.numberPickerHome);
         numberPickerHome.setOnValueChangeListener(new OnValueChangeListener() {
@@ -156,7 +159,6 @@ public class BetGame extends AppCompatActivity implements View.OnClickListener {
 
             });
 
-            startActivity(new Intent(BetGame.this, Navigation.class));
             BetGame.this.finish();
 
 
