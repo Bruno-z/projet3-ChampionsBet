@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
                 UserModel user = new UserModel(UserId, userName, null, favoriteTeam, email, null);
                 mDatabase.setValue(user);
 
-                Intent intent = new Intent(MainActivity.this, CreateOrJoinCompetition.class);
+                Intent intent = new Intent(MainActivity.this, ModifyProfile.class);
                 startActivity(intent);
                 finish();
             }

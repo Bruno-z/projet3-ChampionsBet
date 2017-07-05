@@ -27,9 +27,9 @@
     <color name="greybackground">#ac434242</color>
     <color name="greyList">#414141</color>
     <color name="grisProfile">#b6c9c9c9</color>
-    <color name="bruno_bleu_top">#3F51B4</color>
     <color name="red_connexion_login">#d5f43939</color>
     <color name="bon_bleu_top">#243280</color>
+    <color name= "bouton_application_fond_bleu">#3F51B4</color>
 
 
 
