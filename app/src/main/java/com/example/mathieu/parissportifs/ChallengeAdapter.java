@@ -19,6 +19,7 @@ public class ChallengeAdapter extends Firebaseadapter<CompetitionModel> {
     public String competitionId;
 
 
+
     public ChallengeAdapter(Query ref, Activity activity, int layout, String competitionId) {
         super(ref, CompetitionModel.class, layout, activity);
 
