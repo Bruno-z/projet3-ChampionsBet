@@ -22,6 +22,8 @@ public class Constants {
     public static final String USER_SCORE = "userScore";
     public static final String COMPET_SCORE = "competScore";
     public static final String SELECT_CHAMPIONSHIP = "Select your Championship";
+    public static final String SELECT_CREATE_CHAMPIONSHIF = "Sélectionne ton championnat";
+
     public static final String LIGUE_1 = "Ligue 1";
 
      //TEAMLOGO CONSTANT & SPINNER SELECT TEAM

@@ -103,7 +103,7 @@ import static com.example.mathieu.parissportifs.Constants.USER;
 
 
             List<String> championshipList = new ArrayList<String>();
-            championshipList.add(Constants.SELECT_CHAMPIONSHIP);
+            championshipList.add(Constants.SELECT_CREATE_CHAMPIONSHIF);
             championshipList.add(Constants.LIGUE_1);
 
             ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
@@ -138,7 +138,7 @@ import static com.example.mathieu.parissportifs.Constants.USER;
                     Toast.makeText(CreateCompetitionActivity.this, "Tu dois renseigner le nom de la compétition", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (championHShipName.equals(Constants.SELECT_CHAMPIONSHIP)){
+                if (championHShipName.equals(Constants.SELECT_CREATE_CHAMPIONSHIF)){
                     Toast.makeText(CreateCompetitionActivity.this, "Tu dois renseigner la compétition", Toast.LENGTH_SHORT).show();
                     return;
                 }
