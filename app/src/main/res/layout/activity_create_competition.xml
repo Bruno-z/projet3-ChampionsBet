@@ -17,15 +17,15 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textShortMessage"
-        android:hint="@string/competition_s_name_etext"
+        android:textSize="20dp"
+        android:hint="Ta compétition"
         android:gravity="center"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.053" />
+        app:layout_constraintVertical_bias="0.361" />
 
     <Spinner
         android:id="@+id/championship_spinner"
@@ -42,12 +42,11 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eTextNameYourCompetition"
-        app:layout_constraintVertical_bias="0.171"
-        app:layout_constraintHorizontal_bias="0.493" />
+        app:layout_constraintVertical_bias="0.266" />
 
     <Button
         android:id="@+id/button_validate_mycompetition"
-        android:layout_width="244dp"
+        android:layout_width="245dp"
         android:layout_height="45dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -55,18 +54,33 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/button_validatecreatescreen"
+        android:background="@color/bouton_application_fond_bleu"
+        android:text="Suivant"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:background="@drawable/rounded_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/championship_spinner"
-        app:layout_constraintVertical_bias="0.978"
-        tools:layout_editor_absoluteY="507dp"
-        tools:layout_editor_absoluteX="57dp"
-        app:layout_constraintHorizontal_bias="0.506" />
+        app:layout_constraintVertical_bias="0.792" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Choisis un nom pour ta compétition !"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/eTextNameYourCompetition"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.434" />
 
 
 </android.support.constraint.ConstraintLayout>

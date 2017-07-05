@@ -21,7 +21,7 @@
                     android:id="@+id/calendarViewUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#4D64EF"
+                    android:background="#4B64EF"
                     app:textColorSelected="#FFFF"
                     app:textSizeDayName="14sp"
                     app:textSizeDayNumber="20sp"/>

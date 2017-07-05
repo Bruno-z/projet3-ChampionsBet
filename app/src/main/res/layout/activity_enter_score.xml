@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="92dp"
+        android:textSize="18dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="36dp"
         app:layout_constraintTop_toBottomOf="@+id/textViewDate"
@@ -19,6 +20,7 @@
 
     <TextView
         android:id="@+id/textViewAwayTeam"
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -47,6 +49,7 @@
         android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="18dp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="68dp"
         android:layout_marginLeft="8dp"
