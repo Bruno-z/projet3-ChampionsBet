@@ -59,11 +59,6 @@
             android:screenOrientation="portrait"/>
 
 
-        <activity android:name=".AdminGames"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait">
-
-        </activity>
         <activity android:name=".PickContactActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
@@ -104,6 +99,7 @@
         <activity android:name=".EnterScore"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
+
         <activity android:name=".BetGame"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
