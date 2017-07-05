@@ -19,10 +19,6 @@ public class ChallengeAdapter extends Firebaseadapter<CompetitionModel> {
     public String competitionId;
 
 
-
-
-
-
     public ChallengeAdapter(Query ref, Activity activity, int layout, String competitionId) {
         super(ref, CompetitionModel.class, layout, activity);
 
@@ -46,7 +42,7 @@ public class ChallengeAdapter extends Firebaseadapter<CompetitionModel> {
         if (competition.getCompetitionIdReedeemCode().equals(competitionId)){
             view.setBackgroundResource(R.drawable.list_highlight_background);
         } else {
-             view.setBackgroundColor(Color.WHITE);
+            view.setBackgroundColor(Color.WHITE);
         }
     }
 }
