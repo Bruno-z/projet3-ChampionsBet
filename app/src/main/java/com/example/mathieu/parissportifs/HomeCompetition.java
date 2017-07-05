@@ -22,11 +22,11 @@ import com.google.firebase.database.ValueEventListener;
 public class HomeCompetition extends Fragment implements AdapterView.OnItemClickListener {
 
     private ListView playersList;
-    private TextView competitionNametv;
+    private TextView competitionNametv,textViewligue1;
     private FirebaseDatabase database;
     private FirebaseAuth mAuth;
     private FirebaseUser user;
-    private String uId, postKey, competitionTitle, competitionKey, strtext;
+    private String uId, postKey, competitionTitle, competitionKey, strtext, championShipName;
     private PlayersListAdapter aPlayersListAdapter;
 
 
@@ -65,7 +65,7 @@ public class HomeCompetition extends Fragment implements AdapterView.OnItemClick
 
         playersList = (ListView) view.findViewById(R.id.playersList);
         competitionNametv = (TextView) view.findViewById(R.id.competitionName);
-
+        textViewligue1 = (TextView) view.findViewById(R.id.textViewLigue1);
 
         database = FirebaseDatabase.getInstance();
 
@@ -81,6 +81,11 @@ public class HomeCompetition extends Fragment implements AdapterView.OnItemClick
             public void onDataChange(DataSnapshot dataSnapshot) {
                 CompetitionModel competitionModel = dataSnapshot.getValue(CompetitionModel.class);
                 competitionTitle = competitionModel.getCompetitionName();
+                competitionTitle = competitionTitle.substring(0, Math.min(competitionTitle.length(), 30));
+                championShipName = competitionModel.getChamionshipName();
+                competitionNametv.setText(competitionTitle);
+                textViewligue1.setText(championShipName);
+
 
             }
 
@@ -91,7 +96,6 @@ public class HomeCompetition extends Fragment implements AdapterView.OnItemClick
         });
 
 
-        competitionNametv.setText(competitionTitle);
         aPlayersListAdapter = new PlayersListAdapter(playerListQuery.
                 orderByChild("userScorePerCompetition").limitToFirst(25),
                 HomeCompetition.this.getActivity(), R.layout.players_items_list, strtext);
