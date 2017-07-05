@@ -31,7 +31,7 @@ public class SuperUserRankingAdapter extends Firebaseadapter<CompetitionModel> {
     protected void populateView(View view, CompetitionModel competition, int position) {
 
         textViewPosition = (TextView) view.findViewById(R.id.textViewPosition);
-        textViewPoints = (TextView) view.findViewById(R.id.textViewPlayerRank);
+        textViewPoints = (TextView) view.findViewById(R.id.textViewChampionShipName);
         textViewNameCompetition = (TextView) view.findViewById(R.id.textViewNameCompetition);
         textViewNameAdmin = (TextView) view.findViewById(R.id.textViewNameAdmin);
         textViewEmailAdmin = (TextView) view.findViewById(R.id.textViewEmailAdmin);

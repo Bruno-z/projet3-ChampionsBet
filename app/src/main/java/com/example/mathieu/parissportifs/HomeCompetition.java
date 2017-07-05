@@ -138,10 +138,10 @@ public class HomeCompetition extends Fragment implements AdapterView.OnItemClick
         View beforelastPlayer = playersList.getChildAt(playersList.getLastVisiblePosition() + 1);
         View lastPlayer = playersList.getChildAt(playersList.getLastVisiblePosition());
 
-        TextView first = ((TextView) firstPlayer.findViewById(R.id.textViewPlayerRank));
-        TextView last = ((TextView) lastPlayer.findViewById(R.id.textViewPlayerRank));
-        TextView b4last = ((TextView) beforelastPlayer.findViewById(R.id.textViewPlayerRank));
-        TextView second = ((TextView) secondPlayer.findViewById(R.id.textViewPlayerRank));
+        TextView first = ((TextView) firstPlayer.findViewById(R.id.textViewChampionShipName));
+        TextView last = ((TextView) lastPlayer.findViewById(R.id.textViewChampionShipName));
+        TextView b4last = ((TextView) beforelastPlayer.findViewById(R.id.textViewChampionShipName));
+        TextView second = ((TextView) secondPlayer.findViewById(R.id.textViewChampionShipName));
 
 
         switch (count) {

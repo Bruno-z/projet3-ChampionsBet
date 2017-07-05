@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context="com.example.mathieu.parissportifs.LoginActivity">
+
+
+    <EditText
+        android:id="@+id/inputPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/password_hint"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/inputEmail"
+        android:layout_alignStart="@+id/inputEmail"
+        android:layout_marginBottom="227dp" />
+       " />
+
+    <EditText
+        android:id="@+id/inputEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="@string/e_mail_hint"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="27dp"
+        android:layout_above="@+id/inputPassword"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/buttonSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_button_text"
+        android:layout_marginBottom="135dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/buttonResetPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="29dp"
+        android:layout_toLeftOf="@+id/inputPassword"
+        android:layout_toStartOf="@+id/inputPassword"
+        android:text="@string/reset_password_button" />
+
+    <Button
+        android:id="@+id/buttonCreateWithEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/buttonResetPassword"
+        android:layout_toEndOf="@+id/inputPassword"
+        android:layout_toRightOf="@+id/inputPassword"
+        android:text="@string/create_account_with_e_mail" />
+
+
+</RelativeLayout>

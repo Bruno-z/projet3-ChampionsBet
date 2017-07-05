@@ -138,17 +138,4 @@ public class GameListAdapter extends Firebaseadapter <NewGame> {
 
 
     }
-
-
-    private class StopBet extends TimerTask {
-
-
-
-        public void run () {
-
-
-
-        }
-
-    }
 }

@@ -7,61 +7,58 @@
 
     <TextView
         android:id="@+id/textViewPosition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="21dp"
+        android:layout_height="28dp"
+        android:layout_marginLeft="18dp"
         android:layout_marginTop="26dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:text="1"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewNameCompetition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintLeft_toRightOf="@+id/textViewPosition"
-        android:layout_marginLeft="33dp"
+        android:layout_width="164dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="26dp"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="18dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="26dp" />
+        app:layout_constraintLeft_toRightOf="@+id/textViewPosition"
+        android:layout_marginLeft="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="26dp"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textViewPlayerRank"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textViewChampionShipName"
+        android:layout_width="29dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="26dp"
         android:text="200"
-        app:layout_constraintLeft_toRightOf="@+id/textViewNameCompetition"
-        android:layout_marginLeft="103dp"
+        android:textColor="#000000"
+        android:textSize="18dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="26dp" />
+        app:layout_constraintLeft_toRightOf="@+id/textViewNameCompetition"
+        android:layout_marginLeft="26dp" />
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="points"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="65dp"
+        android:layout_height="26dp"
         android:layout_marginTop="26dp"
-        app:layout_constraintLeft_toRightOf="@+id/textViewPoints"
-        android:layout_marginLeft="76dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textViewTag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="280dp"
-        android:layout_marginTop="17dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView7"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="1.0" />
+        android:text="points"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/textViewChampionShipName"
+        android:layout_marginLeft="0dp" /><![CDATA[
 
 
         app:layout_constraintLeft_toRightOf="@+id/textViewPlayerRank"
         android:layout_marginLeft="18dp" />
 
+]]>
 </android.support.constraint.ConstraintLayout>

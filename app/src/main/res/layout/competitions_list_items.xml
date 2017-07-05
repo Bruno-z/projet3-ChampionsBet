@@ -8,7 +8,7 @@
     <LinearLayout
         android:tag="Bottom2"
         android:layout_width="160dp"
-        android:layout_height="70dp">
+        android:layout_height="match_parent">
 
         <Button
             android:id="@+id/removeCompetition"
@@ -29,66 +29,17 @@
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="23dp"
+            android:layout_marginRight="31dp"
+            android:layout_marginTop="20dp"
             android:text="points"
             android:textColor="@color/greyList"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="40dp"
-            app:layout_constraintRight_toRightOf="parent" />
-
-        <TextView
-            android:id="@+id/eTextChampionnatName"
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:focusable="false"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:inputType="textPersonName"
-            android:text="Ligue 1"
-            android:textColor="@color/greyList"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="170dp"
-            app:layout_constraintRight_toRightOf="parent" />
-
-        <TextView
-            android:id="@+id/textViewPlayerRank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="200"
-            android:textStyle="bold"
-            android:textColor="@color/red"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="16dp"
-            app:layout_constraintLeft_toRightOf="@+id/eTextChampionnatName"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintRight_toLeftOf="@+id/textView9"
-            android:layout_marginRight="8dp"
-            app:layout_constraintHorizontal_bias="0.754" />
-
-        <TextView
-            android:id="@+id/eTextCompetitionName"
-            android:layout_width="210dp"
-            android:textColorHint="@color/grey"
-
-            android:layout_height="0dp"
-            android:ems="10"
-            android:focusable="false"
-            android:hint="@string/hintedittextcompetitionname"
-            android:inputType="textPersonName"
-            android:textColor="@color/greyList"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginRight="8dp"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintHorizontal_bias="0.829"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/eTextChampionnatName" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/textViewPoints"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintHorizontal_bias="1.0" />
 
 
         <ImageView
@@ -96,14 +47,45 @@
             android:layout_width="56dp"
             android:layout_height="50dp"
             android:background="@drawable/france"
-            android:focusable="false"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="26dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="8dp"
-            app:layout_constraintRight_toLeftOf="@+id/eTextChampionnatName"
-            android:layout_marginRight="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/eTextCompetitionName"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/championshipName"
+            android:layout_width="100dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="41dp"
+            android:layout_marginTop="20dp"
+            android:text="TextView"
+            android:textColor="#000000"
+            app:layout_constraintLeft_toRightOf="@+id/ivCaptain"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewCompetitionName"
+            android:layout_width="217dp"
+            android:layout_height="25dp"
+            android:layout_marginBottom="13dp"
+            android:layout_marginLeft="41dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/ivCaptain"
+            app:layout_constraintTop_toBottomOf="@+id/championshipName"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textViewPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_marginLeft="33dp"
+            android:text="200"
+            android:textColor="@color/red"
+            app:layout_constraintLeft_toRightOf="@+id/championshipName"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp" />
     </android.support.constraint.ConstraintLayout>
 </com.daimajia.swipe.SwipeLayout>

@@ -55,7 +55,7 @@ public class PlayersListAdapter extends Firebaseadapter<UserModel> {
         context = v.getContext().getApplicationContext();
 
         playerName = (TextView) v.findViewById(R.id.textViewPlayerName);
-        playerRank = (TextView) v.findViewById(R.id.textViewPlayerRank);
+        playerRank = (TextView) v.findViewById(R.id.textViewChampionShipName);
         playerScore = (TextView) v.findViewById(R.id.textViewPoints);
         nickname = (TextView) v.findViewById(R.id.textViewNickName);
         playerPic = (CircleImageView) v.findViewById(R.id.playerPic);

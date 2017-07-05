@@ -16,15 +16,7 @@ public class ChallengeAdapter extends Firebaseadapter<CompetitionModel> {
     public TextView textViewPosition;
     public TextView textViewPoints;
     public TextView textViewNameCompetition;
-    public TextView textViewTag;
-    public Challenge mChallenge;
-    private String CompetitionKey;
-    private int Count;
-
     public String competitionId;
-
-
-
 
 
 
@@ -40,13 +32,10 @@ public class ChallengeAdapter extends Firebaseadapter<CompetitionModel> {
     protected void populateView(View view, CompetitionModel competition, int position) {
 
         textViewPosition = (TextView) view.findViewById(R.id.textViewPosition);
-        textViewPoints = (TextView) view.findViewById(R.id.textViewPlayerRank);
+        textViewPoints = (TextView) view.findViewById(R.id.textViewChampionShipName);
         textViewNameCompetition = (TextView) view.findViewById(R.id.textViewNameCompetition);
-        textViewTag = (TextView) view.findViewById(R.id.textViewTag);
 
         textViewPosition.setText(String.valueOf(getItemId(position+1)));
-        textViewTag.setText(competition.getCompetitionIdReedeemCode());
-        textViewTag.setVisibility(View.INVISIBLE);
 
         textViewNameCompetition.setText(competition.getCompetitionName());
         textViewPoints.setText(String.valueOf(competition.getCompetitionScore()));
@@ -54,15 +43,7 @@ public class ChallengeAdapter extends Firebaseadapter<CompetitionModel> {
         if (competition.getCompetitionIdReedeemCode().equals(competitionId)){
             view.setBackgroundResource(R.drawable.list_highlight_background);
         } else {
-             view.setBackgroundColor(Color.WHITE);
+            view.setBackgroundColor(Color.WHITE);
         }
     }
-
-
-
-
-
-
-
-
 }

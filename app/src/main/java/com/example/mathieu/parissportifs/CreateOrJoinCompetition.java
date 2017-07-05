@@ -33,7 +33,7 @@ import java.util.List;
 
 import static com.example.mathieu.parissportifs.Constants.USER;
 
-public class CreateOrJoinCompetition extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
+public class CreateOrJoinCompetition extends AppCompatActivity implements View.OnClickListener {
 
         public static final String REC_DATA = "REC_DATA";
     public static final String COMPETITION_ID = "competitionId";
@@ -88,6 +88,21 @@ public class CreateOrJoinCompetition extends AppCompatActivity implements View.O
         mCompetitionResultAdapter = new SwipeCompetitionAdapter(competitionsList, CreateOrJoinCompetition.this, this.getLayoutInflater(),uId);
         mCompetitionListView.setAdapter(mCompetitionResultAdapter);
 
+        mCompetitionListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String postKey = mCompetitionResultAdapter.getmKey(position);
+
+
+                Bundle bundle = new Bundle();
+                bundle.putString(COMPETITION_ID, postKey);
+
+                Intent intent = new Intent(CreateOrJoinCompetition.this, Navigation.class);
+                intent.putExtra(COMPETITION_ID, bundle);
+                startActivity(intent);
+            }
+        });
+
 
         Query query = mDatabaseCompetitionRef;
         query.addValueEventListener(new ValueEventListener() {
@@ -115,13 +130,7 @@ public class CreateOrJoinCompetition extends AppCompatActivity implements View.O
 
             }
         });
-
-
-
-        mCompetitionListView.setOnItemClickListener(this);
-
-
-        }
+    }
 
         @Override
         public void onClick(View v) {
@@ -246,7 +255,7 @@ public class CreateOrJoinCompetition extends AppCompatActivity implements View.O
 
 
 
-        @Override
+       /* @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
             //goToCompetition = mCompetitionResultAdapter.getItem(position);
@@ -265,7 +274,7 @@ public class CreateOrJoinCompetition extends AppCompatActivity implements View.O
             startActivity(intent);
 
 
-        }
+        }*/
     }
 
 

@@ -1,7 +1,6 @@
 package com.example.mathieu.parissportifs;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +30,7 @@ public class SwipeCompetitionAdapter extends BaseSwipeAdapter {
     private List<CompetitionModel> competitionModelList;
     private TextView competitionName;
     private TextView championshipName;
-    private TextView textViewPlayerRank;
+    private TextView textViewPoints;
     private Context context;
     private LayoutInflater inflater;
     private Button removeCompetition;
@@ -58,14 +57,14 @@ public class SwipeCompetitionAdapter extends BaseSwipeAdapter {
     @Override
     public void fillValues(final int position, View convertView) {
 
-        competitionName = (TextView) convertView.findViewById(R.id.eTextCompetitionName);
-        championshipName = (TextView) convertView.findViewById(R.id.eTextChampionnatName);
+        competitionName = (TextView) convertView.findViewById(R.id.textViewCompetitionName);
+        championshipName = (TextView) convertView.findViewById(R.id.championshipName);
         removeCompetition = (Button) convertView.findViewById(R.id.removeCompetition);
-        textViewPlayerRank = (TextView) convertView.findViewById(R.id.textViewPlayerRank);
+        textViewPoints = (TextView) convertView.findViewById(R.id.textViewPoints);
 
         competitionName.setText(competitionModelList.get(position).getCompetitionName());
         championshipName.setText(String.valueOf(competitionModelList.get(position).getChamionshipName()));
-        textViewPlayerRank.setText(String.valueOf(competitionModelList.get(position).getCompetitionScore()));
+        textViewPoints.setText(String.valueOf(competitionModelList.get(position).getCompetitionScore()));
 
 
 
