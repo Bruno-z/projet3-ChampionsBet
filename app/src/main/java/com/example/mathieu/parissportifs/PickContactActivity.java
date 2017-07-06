@@ -151,7 +151,7 @@ public class PickContactActivity extends ListActivity implements View.OnClickLis
         if (i == R.id.buttonfinishpickcontacts){
 
             String[] contactArray = listItems.toArray(new String[listItems.size()]);
-            String message = "Rejoins-moi sur ChampionsBet, viens pronostiquer les prochaines rencontres de la Ligue 1. Télécharge l'application, c'est gratuit ! Voici le code de ma compétition : " + CompetitionId;
+            String message = "Rejoins-moi sur ChampionsBet. Voici le code de ma compétition : " + CompetitionId;
             sendSMS(message, contactArray);
             startActivity(new Intent(PickContactActivity.this, CreateOrJoinCompetition.class));
 

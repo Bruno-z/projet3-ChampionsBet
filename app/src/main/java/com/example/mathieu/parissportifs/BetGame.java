@@ -113,6 +113,7 @@ public class BetGame extends AppCompatActivity implements View.OnClickListener {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 UserModel currentUser = dataSnapshot.getValue(UserModel.class);
+                if (currentUser.getUsersBets() != null){
                 HashMap<String , BetGameModel> betMap = currentUser.getUsersBets();
                 BetGameModel userBet = betMap.get(newGame.getmIdGame());
                 if (userBet != null && newGame.getmIdGame().equals(userBet.getmGameId())) {
@@ -120,6 +121,7 @@ public class BetGame extends AppCompatActivity implements View.OnClickListener {
                     int mBetScoreHome = userBet.getmHomeScore();
                     previousbetHomeTeam.setText(String.valueOf(mBetScoreHome));
                     previousbetAwayTeam.setText(String.valueOf(mBetScoreAway));
+                }
                 }
 
             }
