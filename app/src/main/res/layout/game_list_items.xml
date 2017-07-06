@@ -21,7 +21,7 @@
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="44dp"
         android:gravity="center"
         android:text="TextView"
         android:textStyle="bold"
@@ -84,14 +84,14 @@
         android:id="@+id/textViewbetScoreAway"
         android:layout_width="20dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="138dp"
+        android:layout_marginTop="133dp"
         android:textSize="18sp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="133dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.984" />
 
     <TextView
         android:id="@+id/textViewbetScoreHome"
