@@ -127,11 +127,6 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
             ligue1List.add(Constants.AMIENS);
 
 
-
-
-
-
-
             ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ligue1List);
             dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             favoriteTeamSelector.setAdapter(dataAdapter);
@@ -200,7 +195,7 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
                 UserModel user = new UserModel(UserId, userName, null, favoriteTeam, email, null);
                 mDatabase.setValue(user);
 
-                Intent intent = new Intent(MainActivity.this, ModifyProfile.class);
+                Intent intent = new Intent(MainActivity.this, CreateOrJoinCompetition.class);
                 startActivity(intent);
                 finish();
             }

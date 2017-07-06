@@ -36,7 +36,6 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -56,9 +55,8 @@
         android:background="@drawable/edditext_login_email"
         android:ems="10"
         android:gravity="center"
+        android:textColor="@color/greyList"
         android:inputType="textPersonName"
-
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintLeft_toLeftOf="parent"
