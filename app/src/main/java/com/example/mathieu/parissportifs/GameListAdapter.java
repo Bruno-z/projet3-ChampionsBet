@@ -13,6 +13,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -32,6 +33,7 @@ public class GameListAdapter extends Firebaseadapter <NewGame> {
     int ScoreBetAway, ScoreBetHome;
     String competitionid, userid;
     public DatabaseReference mDatabaseref;
+    DatabaseReference mDatabasereferenceCompet;
     private NewGame newGame;
 
     public GameListAdapter(Query ref, Activity activity, int layout) {
@@ -50,7 +52,7 @@ public class GameListAdapter extends Firebaseadapter <NewGame> {
 
 
     @Override
-    protected void populateView(View view, NewGame mNewGame, int position) {
+    protected void populateView(View view, final NewGame mNewGame, int position) {
 
 
         String prout = mNewGame.getmReportDate();
@@ -65,9 +67,6 @@ public class GameListAdapter extends Firebaseadapter <NewGame> {
         betScoreAway = (TextView) view.findViewById(R.id.textViewbetScoreAway);
         imageViewAway = (ImageView) view.findViewById(R.id.imageViewAwayTeam);
         imageViewHome = (ImageView) view.findViewById(R.id.imageViewHomeTeam);
-
-
-
 
 
         if (mNewGame.getmStatus().equals("OUVERT")){
@@ -92,50 +91,33 @@ public class GameListAdapter extends Firebaseadapter <NewGame> {
 
         homeTeam.setText(String.valueOf(mNewGame.getmHomeTeam()));
         awayTeam.setText(String.valueOf(mNewGame.getmAwayTeam()));
-        //GetBet(competitionid, userid, mNewGame.getmIdGame());
-
-
-
 
         SwitchLogoModel.switchLogo(homeTeam, imageViewHome, awayTeam , imageViewAway);
 
-    }
+        mDatabasereferenceCompet = FirebaseDatabase.getInstance().getReference(Constants.COMPET).child(competitionid);
 
-
-    public void GetBet(String GetCompetitionId, String GetUserId, final String GameId){
-
-        DatabaseReference mUserRef = FirebaseDatabase.getInstance().getReference(Constants.COMPET).child(GetCompetitionId).child("membersMap")
-                .child(GetUserId).child("usersBets").child(GameId);
-
-        mUserRef.addValueEventListener(new ValueEventListener() {
-
+        ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                BetGameModel userBetOnCurrentMatch = dataSnapshot.getValue(BetGameModel.class);
 
-                if (userBetOnCurrentMatch != null && userBetOnCurrentMatch.getmGameId().equals(GameId)) {
-
-                    ScoreBetAway = userBetOnCurrentMatch.getmAwayScore();
-                    ScoreBetHome = userBetOnCurrentMatch.getmHomeScore();
-
-                }else{
-                    ScoreBetAway = 0 ;
-                    ScoreBetHome = 0;
-
+                CompetitionModel competition = dataSnapshot.getValue(CompetitionModel.class);
+                HashMap<String, UserModel> usersMap = competition.getMembersMap();
+                UserModel myUser = usersMap.get(userid);
+                HashMap<String, BetGameModel> myGame = myUser.getUsersBets();
+                BetGameModel betGame = myGame.get(mNewGame.getmIdGame());
+                if (betGame != null && betGame.getmHomeScore() != -1){
+                    betScoreHome.setText(String.valueOf(mNewGame.getmScoreHomeTeam()));
+                    betScoreAway.setText(String.valueOf(mNewGame.getmScoreAwayTeam()));
                 }
-
-                betScoreAway.setText(String.valueOf(ScoreBetAway));
-                betScoreHome.setText(String.valueOf(ScoreBetHome));
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });
-
-
-
+        };
+        mDatabasereferenceCompet.addValueEventListener(postListener);
+        
 
     }
 }

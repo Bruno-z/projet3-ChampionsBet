@@ -19,12 +19,12 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:id="@+id/imageViewSettings"
-        android:layout_width="53dp"
-        android:layout_height="47dp"
-        android:layout_marginBottom="14dp"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="12dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="14dp"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
