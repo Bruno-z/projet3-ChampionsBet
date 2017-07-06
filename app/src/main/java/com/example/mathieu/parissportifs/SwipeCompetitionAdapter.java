@@ -135,7 +135,7 @@ public class SwipeCompetitionAdapter extends BaseSwipeAdapter {
         return competitionModelList.get(position).getCompetitionIdReedeemCode();
     }
 
-    public void removeUser(final String competitionKey, final String userId){
+    public void removeUser(final String competitionKey, final String userId) {
 
         mDatabase = FirebaseDatabase.getInstance().getReference(Constants.COMPET);
 
@@ -157,6 +157,5 @@ public class SwipeCompetitionAdapter extends BaseSwipeAdapter {
                 throw databaseError.toException();
             }
         });
-
     }
 }

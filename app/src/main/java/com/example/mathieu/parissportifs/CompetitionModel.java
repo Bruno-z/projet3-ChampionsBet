@@ -21,6 +21,7 @@ public class CompetitionModel {
     private String nameAdmin;
 
 
+
     private CompetitionModel() {}
 
     public CompetitionModel(String competitionName, String chamionshipName, String userAdmin, HashMap<String, UserModel> userList,  @Nullable String competitionIdReedeemCode, String emailAdmin, String nomAdmin) {
@@ -33,6 +34,8 @@ public class CompetitionModel {
         this.nameAdmin = nomAdmin;
 
     }
+
+
 
     public String getCompetitionName() {
         return competitionName;

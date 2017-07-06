@@ -209,7 +209,6 @@ public class CreateOrJoinCompetition extends AppCompatActivity implements View.O
                     HashMap<String, UserModel> membersMap = currentCompetition.getMembersMap();
                     membersMap.put(userData.getUserId(), userData);
                     currentCompetition.setMembersMap(membersMap);
-
                     mutableData.setValue(currentCompetition);
                     return Transaction.success(mutableData);
                 }

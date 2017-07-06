@@ -297,6 +297,7 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
     private void downloadPicture() {
 
         StorageReference userPicture = mStorageRef.child(mAuth.getCurrentUser().getUid() + "_avatar");
+        save.setEnabled(false);
         userPicture.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -311,7 +312,7 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
             public void onFailure(@NonNull Exception exception) {
             }
         });
-
+        save.setEnabled(true);
     }
 
     private void dispatchTakePictureIntent() {

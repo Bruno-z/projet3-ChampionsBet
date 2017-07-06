@@ -1,44 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/topbar"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:background="@drawable/topbar"
+xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <!-- This could be your fragment container, or something -->
 
 
-    <FrameLayout
-        android:id="@+id/frame_layout_super_user"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottomBar"
-        android:layout_below="@+id/imageViewSettings"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+<FrameLayout
+    android:id="@+id/frame_layout_super_user"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/bottomBar"
+    android:layout_below="@+id/imageViewSettings"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentEnd="true" />
 
-    <ImageView
-        android:id="@+id/imageViewSettings"
-        android:layout_width="53dp"
-        android:layout_height="47dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="0dp"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ecrou" />
+<ImageView
+    android:id="@+id/imageViewSettings"
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:layout_marginBottom="25dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="10dp"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:srcCompat="@drawable/ecrou" />
 
-    <com.roughike.bottombar.BottomBar
-        android:id="@+id/bottomBar"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        app:bb_tabXmlResource="@xml/bottombar_superuser"
-        app:bb_inActiveTabColor="#3F51B4"
-        app:bb_activeTabColor="#3F51B4"
+<com.roughike.bottombar.BottomBar
+    android:id="@+id/bottomBar"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    app:bb_behavior="shifting"
+    android:layout_alignParentBottom="true"
+    app:bb_tabXmlResource="@xml/bottombar_superuser"
+    app:bb_inActiveTabColor="#3F51B4"
+    app:bb_activeTabColor="#3F51B4"
     />
 
 

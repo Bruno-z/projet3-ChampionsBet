@@ -119,8 +119,8 @@ public class BetGame extends AppCompatActivity implements View.OnClickListener {
                 if (userBet != null && newGame.getmIdGame().equals(userBet.getmGameId())) {
                     int mBetScoreAway = userBet.getmAwayScore();
                     int mBetScoreHome = userBet.getmHomeScore();
-                    previousbetHomeTeam.setText(String.valueOf(mBetScoreHome));
-                    previousbetAwayTeam.setText(String.valueOf(mBetScoreAway));
+                    previousbetAwayTeam.setText(String.valueOf(mBetScoreHome));
+                    previousbetHomeTeam.setText(String.valueOf(mBetScoreAway));
                 }
                 }
 

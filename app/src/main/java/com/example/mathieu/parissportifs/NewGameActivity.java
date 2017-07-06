@@ -127,6 +127,7 @@ public class NewGameActivity extends AppCompatActivity implements View.OnClickLi
         ligue1List.add(Constants.TFC);
         ligue1List.add(Constants.TROYES);
         ligue1List.add(Constants.AMIENS);
+        ligue1List.add(Constants.NANTES);
 
         addItemTeamAwaySelector();
         addItemTeamHomeSelector();
