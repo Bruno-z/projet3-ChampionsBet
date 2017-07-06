@@ -93,31 +93,5 @@ public class GameListAdapter extends Firebaseadapter <NewGame> {
         awayTeam.setText(String.valueOf(mNewGame.getmAwayTeam()));
 
         SwitchLogoModel.switchLogo(homeTeam, imageViewHome, awayTeam , imageViewAway);
-
-        mDatabasereferenceCompet = FirebaseDatabase.getInstance().getReference(Constants.COMPET).child(competitionid);
-
-        ValueEventListener postListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                CompetitionModel competition = dataSnapshot.getValue(CompetitionModel.class);
-                HashMap<String, UserModel> usersMap = competition.getMembersMap();
-                UserModel myUser = usersMap.get(userid);
-                HashMap<String, BetGameModel> myGame = myUser.getUsersBets();
-                BetGameModel betGame = myGame.get(mNewGame.getmIdGame());
-                if (betGame != null && betGame.getmHomeScore() != -1){
-                    betScoreHome.setText(String.valueOf(mNewGame.getmScoreHomeTeam()));
-                    betScoreAway.setText(String.valueOf(mNewGame.getmScoreAwayTeam()));
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
-        mDatabasereferenceCompet.addValueEventListener(postListener);
-        
-
     }
 }

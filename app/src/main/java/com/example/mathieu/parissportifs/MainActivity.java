@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
     private DatabaseReference mDatabase, checkUserScore;
     private Spinner favoriteTeamSelector;
     private String equipefavorite, favoriteTeam;
-
+    private FirebaseUser user;
     private Button buttonGo;
     private ProgressDialog progressDialog;
 
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
 
         //Get Firebase auth instance
             mAuth = FirebaseAuth.getInstance();
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            user = FirebaseAuth.getInstance().getCurrentUser();
             mDatabase = FirebaseDatabase.getInstance().getReference().child(USER).child(user.getUid());
 
             // Spinner
@@ -192,6 +192,19 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
                 String UserId = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
 
                 String userName = editTextModifyPseudo.getText().toString();
+                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                        .setDisplayName(userName)
+                        .build();
+
+                user.updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+
+                        }
+                    }
+                });
+
                 UserModel user = new UserModel(UserId, userName, null, favoriteTeam, email, null);
                 mDatabase.setValue(user);
 
