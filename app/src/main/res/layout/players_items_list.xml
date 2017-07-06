@@ -60,7 +60,7 @@
         android:id="@+id/textViewPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="37dp"
+        android:layout_marginLeft="58dp"
         android:text="TextView"
         android:textColor="@color/red"
         app:layout_constraintLeft_toRightOf="@+id/textViewPlayerName"
