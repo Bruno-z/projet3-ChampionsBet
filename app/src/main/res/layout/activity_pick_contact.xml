@@ -29,13 +29,12 @@
 
         <Button
             android:id="@+id/buttonfinishpickcontacts"
-            android:layout_width="220dp"
-            android:layout_height="60dp"
+            android:layout_width="173dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_weight="1"
             android:text="Validation"
             android:background="@color/bouton_application_fond_bleu"
             android:textColor="@color/white"
@@ -48,13 +47,12 @@
 
         <Button
             android:id="@+id/pickcontact"
-            android:layout_width="220dp"
-            android:layout_height="60dp"
+            android:layout_width="172dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_weight="1"
             android:background="@color/bouton_application_fond_bleu"
             android:text="Invite un ami"
             android:textColor="@color/white"

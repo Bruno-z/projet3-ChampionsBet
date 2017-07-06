@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_gravity="top"
-            android:background="@drawable/bleupale_signin"
+            android:background="@drawable/topba"
             >
 
             <TextView
@@ -29,8 +29,8 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="26dp"
                 android:text="TextView"
-                android:textColor="@color/black"
-                android:textSize="24dp"
+                android:textColor="@color/greyList"
+                android:textSize="20dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -62,7 +62,7 @@
                 android:layout_marginRight="228dp"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
-                android:textSize="18dp"
+                android:textSize="17dp"
                 android:text="textTest"
                 android:textColor="@color/greyList"
                 android:textStyle="bold"
