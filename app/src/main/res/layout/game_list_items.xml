@@ -21,7 +21,7 @@
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="50dp"
         android:gravity="center"
         android:text="TextView"
         android:textStyle="bold"
@@ -33,7 +33,7 @@
         android:id="@+id/textViewAwayTeam"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="50dp"
         android:gravity="center"
         android:text="TextView"
         android:textStyle="bold"
@@ -56,54 +56,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewBetScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="163dp"
-        android:layout_marginTop="97dp"
-        android:gravity="center"
-        android:text="Your bet "
-        android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/textViewScoreHome"
         android:layout_width="20dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="50dp"
         android:textSize="18sp"
         app:layout_constraintLeft_toRightOf="@+id/textViewHomeTeam"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewbetScoreAway"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="133dp"
-        android:textSize="18sp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="133dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.984" />
-
-    <TextView
-        android:id="@+id/textViewbetScoreHome"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="138dp"
-        android:textSize="18sp"
-        app:layout_constraintHorizontal_bias="0.692"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/textViewbetScoreAway"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -112,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="8dp"
         android:layout_marginStart="43dp"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="50dp"
         android:textSize="18sp"
         app:layout_constraintRight_toLeftOf="@+id/textViewAwayTeam"
         app:layout_constraintTop_toTopOf="parent" />
@@ -125,7 +84,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/amiens"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintVertical_bias="0.0"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent" />

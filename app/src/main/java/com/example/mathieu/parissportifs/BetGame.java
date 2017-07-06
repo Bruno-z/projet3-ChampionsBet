@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Transaction;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
@@ -44,6 +45,8 @@ public class BetGame extends AppCompatActivity implements View.OnClickListener {
     private FirebaseUser mUser;
     private DatabaseReference mDatabaseCompet;
     private DatabaseReference currentCompetitionRef;
+    private TextView previousbetAwayTeam;
+    private TextView previousbetHomeTeam;
 
 
     @Override
@@ -100,6 +103,30 @@ public class BetGame extends AppCompatActivity implements View.OnClickListener {
             public void onValueChanged(int newValue) {
 
                 mScoreAway = newValue;
+            }
+        });
+
+        previousbetAwayTeam = (TextView) findViewById(R.id.tvprevbetaway);
+        previousbetHomeTeam = (TextView) findViewById(R.id.tvprevbethome);
+        currentCompetitionRef = mDatabaseCompet.child(mCompetitonId).child("membersMap").child(mUser.getUid());
+        currentCompetitionRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                UserModel currentUser = dataSnapshot.getValue(UserModel.class);
+                HashMap<String , BetGameModel> betMap = currentUser.getUsersBets();
+                BetGameModel userBet = betMap.get(newGame.getmIdGame());
+                if (userBet != null && newGame.getmIdGame().equals(userBet.getmGameId())) {
+                    int mBetScoreAway = userBet.getmAwayScore();
+                    int mBetScoreHome = userBet.getmHomeScore();
+                    previousbetHomeTeam.setText(String.valueOf(mBetScoreHome));
+                    previousbetAwayTeam.setText(String.valueOf(mBetScoreAway));
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
     }
