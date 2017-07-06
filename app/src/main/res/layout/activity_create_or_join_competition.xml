@@ -41,7 +41,7 @@
             android:layout_weight="1"
             android:background="@color/bouton_application_fond_bleu"
             android:gravity="center"
-            android:text="Join Competition"
+            android:text="Rejoins une compétition"
             android:textColor="@color/white"
             tools:layout_editor_absoluteX="211dp"
             tools:layout_editor_absoluteY="492dp" />
@@ -55,7 +55,7 @@
             android:layout_weight="1"
             android:background="@color/bouton_application_fond_bleu"
             android:gravity="center"
-            android:text="Create Competition"
+            android:text="Crée une compétition"
             android:textColor="@color/white"
             tools:layout_editor_absoluteX="-1dp"
             tools:layout_editor_absoluteY="493dp" />
