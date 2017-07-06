@@ -47,7 +47,7 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
 
     private FirebaseAuth mAuth;
     private StorageReference mStorageRef;
-    private EditText  etName;
+    private EditText etName;
     private CircleImageView civProfilePic;
     private TextView modifyPicture, modifyPassword, removeAccount, logOut, etEmail;
     private Button save;
@@ -80,7 +80,7 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
         etEmail = (TextView) findViewById(R.id.editTextModifyEmail);
         etName = (EditText) findViewById(R.id.editTextModifyPseudo);
 
-        civProfilePic = (CircleImageView)findViewById(R.id.playerPic);
+        civProfilePic = (CircleImageView) findViewById(R.id.playerPic);
         civProfilePic.setOnClickListener(this);
 
 
@@ -107,9 +107,6 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
         save = (Button) findViewById(R.id.buttonSave);
         save.setOnClickListener(this);
 
-
-
-
         downloadPicture();
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -130,8 +127,6 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
     }
 
 
-
-
     public void pushUserOnFirebase() {
 
         userDatabase = FirebaseDatabase.getInstance();
@@ -144,7 +139,7 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
                 UserModel userActuel = dataSnapshot.getValue(UserModel.class);
                 userActuel.setUserName(newPseudo);
                 myRef.setValue(userActuel);
-                }
+            }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -154,7 +149,6 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
     }
 
     public void changeProfil() {
-
 
         newPseudo = etName.getText().toString().trim();
 
@@ -175,6 +169,7 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
             }
         });
     }
+
 
     public void deleteProfil() {
 
@@ -214,7 +209,7 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
         }
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
 
-            imageUri=data.getData();
+            imageUri = data.getData();
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
 
@@ -230,7 +225,7 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
 
     private void uploadPicture(final Uri uri) {
 
-        if (uri!=null) {
+        if (uri != null) {
             StorageReference picRef = mStorageRef.child(mAuth.getCurrentUser().getUid() + "_avatar");
 
             picRef.putFile(uri)
@@ -257,8 +252,7 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
                             // ...
                         }
                     });
-        }
-        else{
+        } else {
 
             civProfilePic.setDrawingCacheEnabled(true);
             Bitmap imagebitmap = civProfilePic.getDrawingCache();
@@ -268,7 +262,6 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
             imagebitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
             byte[] data = baos.toByteArray();
             StorageReference picRef = mStorageRef.child(mAuth.getCurrentUser().getUid() + "_avatar");
-
 
 
             UploadTask uploadTask = picRef.putBytes(data);
@@ -298,9 +291,9 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
 
     }
 
-    private void downloadPicture () {
+    private void downloadPicture() {
 
-        StorageReference userPicture = mStorageRef.child(mAuth.getCurrentUser().getUid()+"_avatar");
+        StorageReference userPicture = mStorageRef.child(mAuth.getCurrentUser().getUid() + "_avatar");
         userPicture.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -308,7 +301,7 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
                         .load(uri)
                         .placeholder(R.drawable.profile_test)
                         .into(civProfilePic)
-                        ;
+                ;
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -317,6 +310,7 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
         });
 
     }
+
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         /**Ensure there is a camera activity to handle the Intent*/
@@ -325,7 +319,7 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
 
             /** Create the file where the photo should go
              */
-            File photoFile=null;
+            File photoFile = null;
             try {
                 photoFile = createImageFile();
             } catch (IOException ex) {
@@ -333,7 +327,7 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
             }
             // Continue only if the File was successfully created
             if (photoFile != null) {
-                imageUri = FileProvider.getUriForFile(this,"com.example.mathieu.parissportifs", photoFile);
+                imageUri = FileProvider.getUriForFile(this, "com.example.mathieu.parissportifs", photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
 
             }
@@ -357,6 +351,7 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
         mCurrentPhotoPath = image.getAbsolutePath();
         return image;
     }
+
     private void galleryAddPic() {
         Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         File f = new File(mCurrentPhotoPath);
@@ -366,99 +361,104 @@ public class ModifyProfile extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
-    public void onClick (View v) {
+    public void onClick(View v) {
         if (v == save) {
-            changeProfil();
-            // __________A VIRER SI BUG_______________
-            pushUserOnFirebase();
-            // __________A VIRER SI BUG_______________
+            if (etName.getText().length() == 0) {
+                Toast.makeText(ModifyProfile.this, "Veuillez remplir votre pseudo", Toast.LENGTH_LONG).show();
+                return;
+            } else {
+                changeProfil();
+                // __________A VIRER SI BUG_______________
+                pushUserOnFirebase();
+                // __________A VIRER SI BUG_______________
 
-            finish();
-            startActivity(new Intent(this, CreateOrJoinCompetition.class));
-        }
-        if (v == removeAccount) {
+                finish();
+                startActivity(new Intent(this, CreateOrJoinCompetition.class));
+            }
+            if (v == removeAccount) {
 
-            // Boite de dialogue confirmation suppression
-            new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
-                    .setTitleText("Tu veux nous quitter ?")
-                    .setContentText("Êtes-vous sûr de vouloir supprimer votre compte ?")
-                    .setCancelText("Non")
-                    .setConfirmText("Yes")
-                    .showCancelButton(true)
-                    .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                        @Override
-                        public void onClick(SweetAlertDialog sDialog) {
-                            // reuse previous dialog instance, keep widget user state, reset them if you need
-                            sDialog.setTitleText("Super choix !")
-                                    .setContentText("Nous sommes ravis que tu veuilles continuer l'aventure avec nous !")
-                                    .setConfirmText("OK")
-                                    .showCancelButton(false)
-                                    .setCancelClickListener(null)
-                                    .setConfirmClickListener(null)
-                                    .changeAlertType(SweetAlertDialog.ERROR_TYPE);
-                        }
-                    })
-                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                        @Override
-                        public void onClick(SweetAlertDialog sDialog) {
-                            deleteProfil();
-                            sDialog.setTitleText("Suppression !")
-                                    .setContentText("Vous ne faites plus partie de la communauté Wild Socks!")
-                                    .setConfirmText("OK")
-                                    .showCancelButton(false)
-                                    .setCancelClickListener(null)
-                                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                                        @Override
-                                        public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                            finish();
-                                            startActivity(new Intent(ModifyProfile.this,MainActivity.class));
-                                        }
-                                    })
-                                    .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
+                // Boite de dialogue confirmation suppression
+                new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                        .setTitleText("Tu veux nous quitter ?")
+                        .setContentText("Êtes-vous sûr de vouloir supprimer votre compte ?")
+                        .setCancelText("Non")
+                        .setConfirmText("Yes")
+                        .showCancelButton(true)
+                        .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
+                                // reuse previous dialog instance, keep widget user state, reset them if you need
+                                sDialog.setTitleText("Super choix !")
+                                        .setContentText("Nous sommes ravis que tu veuilles continuer l'aventure avec nous !")
+                                        .setConfirmText("OK")
+                                        .showCancelButton(false)
+                                        .setCancelClickListener(null)
+                                        .setConfirmClickListener(null)
+                                        .changeAlertType(SweetAlertDialog.ERROR_TYPE);
+                            }
+                        })
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
+                                deleteProfil();
+                                sDialog.setTitleText("Suppression !")
+                                        .setContentText("Vous ne faites plus partie de la communauté Wild Socks!")
+                                        .setConfirmText("OK")
+                                        .showCancelButton(false)
+                                        .setCancelClickListener(null)
+                                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                            @Override
+                                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                                finish();
+                                                startActivity(new Intent(ModifyProfile.this, MainActivity.class));
+                                            }
+                                        })
+                                        .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
 
-                        }
+                            }
 
-                    })
-                    .show();
-        }
-        if (v == modifyPassword){
+                        })
+                        .show();
+            }
+            if (v == modifyPassword) {
 
-            startActivity(new Intent(ModifyProfile.this,ResetPasswordActivity.class));
-        }
-        if (v == modifyPicture || v == civProfilePic) {
+                startActivity(new Intent(ModifyProfile.this, ResetPasswordActivity.class));
+            }
+            if (v == modifyPicture || v == civProfilePic) {
 
 
-            new SweetAlertDialog(this)
-                    .setTitleText("Alors tu ressembles à quoi!")
-                    .setCancelText("Gallery")
-                    .setConfirmText("Camera")
-                    .showCancelButton(true)
-                    .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                        @Override
-                        public void onClick(SweetAlertDialog sDialog) {
-                            // reuse previous dialog instance, keep widget user state, reset them if you need
-                            openGallery();
-                            sDialog.cancel();
-                        }
-                    })
-                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                        @Override
-                        public void onClick(SweetAlertDialog sDialog) {
+                new SweetAlertDialog(this)
+                        .setTitleText("Alors tu ressembles à quoi!")
+                        .setCancelText("Gallery")
+                        .setConfirmText("Camera")
+                        .showCancelButton(true)
+                        .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
+                                // reuse previous dialog instance, keep widget user state, reset them if you need
+                                openGallery();
+                                sDialog.cancel();
+                            }
+                        })
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
 
-                            dispatchTakePictureIntent();
-                            sDialog.cancel();
+                                dispatchTakePictureIntent();
+                                sDialog.cancel();
 
-                        }
+                            }
 
-                    })
-                    .show();
-        }
-        if (v == logOut){
-            FirebaseAuth.getInstance().signOut();
-            LoginManager.getInstance().logOut();
-            Intent intent = new Intent(this, LoginActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
+                        })
+                        .show();
+            }
+            if (v == logOut) {
+                FirebaseAuth.getInstance().signOut();
+                LoginManager.getInstance().logOut();
+                Intent intent = new Intent(this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
         }
     }
 }

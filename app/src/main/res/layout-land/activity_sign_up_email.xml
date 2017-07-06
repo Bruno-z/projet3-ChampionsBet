@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
-    android:background="@drawable/bartop"
     android:layout_height="match_parent"
     tools:context=".SignUpEmailActivity">
 
@@ -78,7 +77,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="164dp"
         android:background="@drawable/edditext_login_email"
         android:ems="10"
         android:gravity="center"
@@ -92,7 +91,8 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_editor_absoluteX="52dp" />
 
 
     <ProgressBar
