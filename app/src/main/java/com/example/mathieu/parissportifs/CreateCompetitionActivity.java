@@ -178,6 +178,29 @@ import static com.example.mathieu.parissportifs.Constants.USER;
                     }
                 });
 
+                database.getReference(COMPET).child(pushedPostRf.getKey()).child("membersMap").child(userId).runTransaction(new Transaction.Handler() {
+                    @Override
+                    public Transaction.Result doTransaction(MutableData mutableData) {
+                        if (mutableData.getValue() == null) {
+                            return Transaction.success(mutableData);
+                        }
+                        UserModel currentUser = mutableData.getValue(UserModel.class);
+                        HashMap<String, Integer> newHash = currentUser.getUserScorePerCompetition();
+                        if (newHash == null) {
+                            newHash = new HashMap<String, Integer>();
+                        }
+                        newHash.put(pushedPostRf.getKey(), 0);
+                        currentUser.setUserScorePerCompetition(newHash);
+                        mutableData.setValue(currentUser);
+                        return Transaction.success(mutableData);
+                    }
+
+                    @Override
+                    public void onComplete(DatabaseError databaseError, boolean b, DataSnapshot dataSnapshot) {
+
+                    }
+                });
+
                 competitionRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {

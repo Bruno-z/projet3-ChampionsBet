@@ -435,7 +435,9 @@ public class EnterScore extends AppCompatActivity implements View.OnClickListene
                 for (UserModel user : usersMap.values()) {
                     UserModel updateUser = updateUser(user, competitionKey);
                     competitionModel.getMembersMap().put(user.getUserId(), updateUser);
-                    scoreCompetition = scoreCompetition + updateUser.getUserScorePerCompetition().get(competitionKey);
+                    if (updateUser.getUserScorePerCompetition().containsKey(competitionKey)) {
+                        scoreCompetition = scoreCompetition + updateUser.getUserScorePerCompetition().get(competitionKey);
+                    }
 
                 }
 
@@ -454,6 +456,9 @@ public class EnterScore extends AppCompatActivity implements View.OnClickListene
     private UserModel updateUser(UserModel userModel, String competiitionID){
 
         HashMap<String, BetGameModel> betsList = userModel.getUsersBets();
+        if (betsList == null){
+            return userModel;
+        }
         if (betsList.containsKey(uploadId)){
             BetGameModel currentBet = betsList.get(uploadId);
             int score = 0;
