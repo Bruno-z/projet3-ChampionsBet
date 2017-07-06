@@ -42,8 +42,7 @@ public class CreateOrJoinCompetition extends AppCompatActivity implements View.O
 
     private ListView mCompetitionListView;
     private Query mDatabaseCompetitionRef, AdapterQuery, mDatabaseUserRef;
-
-
+    private boolean competExist;
     private FirebaseDatabase database;
     private DatabaseReference myRef;
     private FirebaseAuth mAuth;
@@ -157,7 +156,7 @@ public class CreateOrJoinCompetition extends AppCompatActivity implements View.O
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
 
-
+                                competitionExist(input.getText().toString().trim());
                                 addUserToCompetition(input);
                                 addCompetitionToUSer(input);
                                 final String competitionPassword = input.getText().toString();
@@ -253,28 +252,34 @@ public class CreateOrJoinCompetition extends AppCompatActivity implements View.O
             }
         }
 
+        public boolean competitionExist(final String input){
 
+            competExist = false;
+            DatabaseReference exist =  database.getReference("Competitions");
 
-       /* @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            exist.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
 
-            //goToCompetition = mCompetitionResultAdapter.getItem(position);
-            //String key = mCompetitionResultAdapter.getRef(position).getKey();
-            //String postKey = competitionModel.get(position).getKey();
-            //String postKey = mCompetitionResultAdapter.getItemId(position);
+                    for(DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                        CompetitionModel competitionExist = postSnapshot.getValue(CompetitionModel.class);
+                        if (competitionExist.getCompetitionIdReedeemCode().equals(input)) {
+                            competExist = true;
+                            return;
+                        }
+                    }
+                    Toast.makeText(CreateOrJoinCompetition.this, "Le code saisi ne correspond à aucune compétition. Réessaie !",
+                            Toast.LENGTH_SHORT).show();
+                }
 
-            String postKey = mCompetitionResultAdapter.getmKey(position);
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
+                }
+            });
+            return competExist;
+        }
 
-            Bundle bundle = new Bundle();
-            bundle.putString(COMPETITION_ID, postKey);
-
-            Intent intent = new Intent(CreateOrJoinCompetition.this, Navigation.class);
-            intent.putExtra(COMPETITION_ID, bundle);
-            startActivity(intent);
-
-
-        }*/
     }
 
 
