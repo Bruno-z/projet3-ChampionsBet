@@ -37,7 +37,6 @@
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         app:bb_tabXmlResource="@xml/bottombar_superuser"
-        app:bb_behavior="shifting"
         app:bb_inActiveTabColor="#3F51B4"
         app:bb_activeTabColor="#3F51B4"
     />
