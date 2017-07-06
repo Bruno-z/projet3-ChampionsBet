@@ -63,8 +63,6 @@ public class GameListAdapter extends Firebaseadapter <NewGame> {
         awayTeam = (TextView) view.findViewById(R.id.textViewAwayTeam);
         scoreHomeTeam = (TextView) view.findViewById(R.id.textViewScoreHome);
         scoreAwayTeam = (TextView) view.findViewById(R.id.textViewScoreAway);
-        betScoreHome = (TextView) view.findViewById(R.id.textViewbetScoreHome);
-        betScoreAway = (TextView) view.findViewById(R.id.textViewbetScoreAway);
         imageViewAway = (ImageView) view.findViewById(R.id.imageViewAwayTeam);
         imageViewHome = (ImageView) view.findViewById(R.id.imageViewHomeTeam);
 
