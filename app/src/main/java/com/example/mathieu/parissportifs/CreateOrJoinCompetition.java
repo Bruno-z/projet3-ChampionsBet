@@ -153,7 +153,7 @@ public class CreateOrJoinCompetition extends AppCompatActivity implements View.O
                 input.setLayoutParams(lp);
                 alertDialog.setView(input);
 
-                alertDialog.setPositiveButton("GO",
+                alertDialog.setPositiveButton("D'accord",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
 
@@ -168,7 +168,7 @@ public class CreateOrJoinCompetition extends AppCompatActivity implements View.O
                             }
                         });
 
-                alertDialog.setNegativeButton("NOPE",
+                alertDialog.setNegativeButton("Non",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();

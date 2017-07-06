@@ -27,6 +27,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="18dp"
         android:text="1000"
+        android:textColor="@color/red"
         app:layout_constraintLeft_toRightOf="@+id/textViewNameCompetition"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,6 +69,7 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="7dp"
         android:text="TextView"
+        android:textColor="@color/greyList"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.904"
