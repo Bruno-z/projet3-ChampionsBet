@@ -144,7 +144,7 @@ public class SignUpEmailActivity extends AppCompatActivity implements View.OnCli
                             });
                             mDatabase = FirebaseDatabase.getInstance().getReference("users");
                             idUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                            mUser = new UserModel (idUser, userName, null, favoriteTeam, email, null);
+                            mUser = new UserModel (idUser, userName, null, favoriteTeam, email, null,0);
                             mDatabase.child(idUser).setValue(mUser);
 
 

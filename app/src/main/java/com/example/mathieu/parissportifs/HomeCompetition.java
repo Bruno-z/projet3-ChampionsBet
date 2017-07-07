@@ -97,7 +97,7 @@ public class HomeCompetition extends Fragment implements AdapterView.OnItemClick
 
 
         aPlayersListAdapter = new PlayersListAdapter(playerListQuery.
-                orderByChild("userScorePerCompetition").limitToFirst(25),
+                orderByChild("currentScore"),
                 HomeCompetition.this.getActivity(), R.layout.players_items_list, strtext);
 
         playersList.setAdapter(aPlayersListAdapter);
