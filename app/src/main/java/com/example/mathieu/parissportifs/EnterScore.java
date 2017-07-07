@@ -455,6 +455,8 @@ public class EnterScore extends AppCompatActivity implements View.OnClickListene
 
     private UserModel updateUser(UserModel userModel, String competiitionID){
 
+
+
         HashMap<String, BetGameModel> betsList = userModel.getUsersBets();
         if (betsList == null){
             return userModel;
@@ -475,6 +477,7 @@ public class EnterScore extends AppCompatActivity implements View.OnClickListene
             }
             int newScore = updateScorePerCompetition.get(competiitionID) + score;
             updateScorePerCompetition.put(competiitionID, newScore);
+            userModel.setCurrentScore(newScore);
             userModel.setUserScorePerCompetition(updateScorePerCompetition);
 
         }

@@ -15,6 +15,7 @@ public class UserModel {
     private String favoriteTeam;
     private String email;
     private HashMap<String, BetGameModel> usersBets;
+    private int currentScore;
 
 
 
@@ -26,13 +27,22 @@ public class UserModel {
 
   
 
-    public UserModel(String userId, String userName, HashMap<String, Integer> userScorePerCompetition, String favoriteTeam, String email, @Nullable HashMap<String, BetGameModel> usersBets) {
+    public UserModel(String userId, String userName, HashMap<String, Integer> userScorePerCompetition, String favoriteTeam, String email, @Nullable HashMap<String, BetGameModel> usersBets, int currentScore) {
         this.userId = userId;
         this.userName = userName;
         this.userScorePerCompetition = userScorePerCompetition;
         this.favoriteTeam = favoriteTeam;
         this.email = email;
         this.usersBets = usersBets;
+        this.currentScore = currentScore;
+    }
+
+    public int getCurrentScore() {
+        return currentScore;
+    }
+
+    public void setCurrentScore(int currentScore) {
+        this.currentScore = currentScore;
     }
 
     public String getUserId() {
