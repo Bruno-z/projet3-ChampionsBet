@@ -32,11 +32,27 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ecrou" />
 
+
+    <ImageView
+        android:id="@+id/imageViewAddToCompet"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignEnd="@+id/bottomBar"
+        android:layout_alignRight="@+id/bottomBar"
+        android:layout_alignTop="@+id/imageViewSettings"
+        android:layout_marginBottom="25dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/add" />
+
 <com.roughike.bottombar.BottomBar
     android:id="@+id/bottomBar"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-    app:bb_behavior="shifting"
+
     android:layout_alignParentBottom="true"
     app:bb_tabXmlResource="@xml/bottombar_tabs_color_changing"
     app:bb_inActiveTabColor="#3F51B4"

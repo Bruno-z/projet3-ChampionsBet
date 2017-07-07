@@ -8,25 +8,17 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Navigation extends AppCompatActivity {
 
     private BottomBar bottomBar;
     private String key;
     private ImageView imageViewSettings;
+    private ImageView imagetoPickContact;
     private DatabaseReference mDatabase;
 
     @Override
@@ -39,6 +31,7 @@ public class Navigation extends AppCompatActivity {
         key = bundle.getString(CreateOrJoinCompetition.COMPETITION_ID);
 
         imageViewSettings = (ImageView) findViewById(R.id.imageViewSettings);
+        imagetoPickContact = (ImageView) findViewById(R.id.imageViewAddToCompet);
 
         bottomBar = (BottomBar) findViewById(R.id.bottomBar);
 
@@ -71,6 +64,15 @@ public class Navigation extends AppCompatActivity {
                 startActivity(intent);
 
 
+            }
+        });
+
+        imagetoPickContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Navigation.this, PickContactActivity.class);
+                intent.putExtra("oui", key);
+                startActivity(intent);
             }
         });
     }
