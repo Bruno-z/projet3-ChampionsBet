@@ -81,7 +81,7 @@ public class HomeCompetition extends Fragment implements AdapterView.OnItemClick
             public void onDataChange(DataSnapshot dataSnapshot) {
                 CompetitionModel competitionModel = dataSnapshot.getValue(CompetitionModel.class);
                 competitionTitle = competitionModel.getCompetitionName();
-                competitionTitle = competitionTitle.substring(0, Math.min(competitionTitle.length(), 30));
+                competitionTitle = competitionTitle.substring(0, Math.min(competitionTitle.length(), 20));
                 championShipName = competitionModel.getChamionshipName();
                 competitionNametv.setText(competitionTitle);
                 textViewligue1.setText(championShipName);
