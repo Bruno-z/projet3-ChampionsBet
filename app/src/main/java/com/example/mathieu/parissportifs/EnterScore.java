@@ -230,8 +230,7 @@ public class EnterScore extends AppCompatActivity implements View.OnClickListene
                                     @Override
                                     public void onClick(SweetAlertDialog sDialog) {
 
-                                        checkWinnerGame();
-                                        checkCompetitionBet();
+
 
                                         sDialog.setTitleText("Le score est enregistré")
                                                 .setContentText("Le score est bien pris en compte, nous allons calculer le meilleur parieur !")
@@ -241,7 +240,8 @@ public class EnterScore extends AppCompatActivity implements View.OnClickListene
                                                 .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                                     @Override
                                                     public void onClick(SweetAlertDialog sDialog) {
-
+                                                        checkWinnerGame();
+                                                        checkCompetitionBet();
                                                         sDialog.cancel();
                                                         finish();
                                                     }
