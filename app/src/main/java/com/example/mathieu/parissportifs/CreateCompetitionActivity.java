@@ -2,7 +2,8 @@
 
     import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+    import android.support.annotation.NonNull;
+    import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,7 +13,9 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
+    import com.google.android.gms.tasks.OnCompleteListener;
+    import com.google.android.gms.tasks.Task;
+    import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -144,7 +147,7 @@ import static com.example.mathieu.parissportifs.Constants.USER;
                 }
 
                 // Write a message to the database
-                String userId = mUser.getUid();
+                final String userId = mUser.getUid();
                 String emailAdmin = mUser.getEmail();
                 String nameAdmin = mUser.getDisplayName();
 
@@ -155,51 +158,56 @@ import static com.example.mathieu.parissportifs.Constants.USER;
 
 
                 final DatabaseReference pushedPostRf = competitionRef.push();
-                pushedPostRf.setValue(userCompetition);
-                mUserRef.runTransaction(new Transaction.Handler() {
+                pushedPostRf.setValue(userCompetition).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
-                    public Transaction.Result doTransaction(MutableData mutableData) {
-                        UserModel currentUser = mutableData.getValue(UserModel.class);
-                        HashMap<String, Integer> newHash = currentUser.getUserScorePerCompetition();
-                        if (newHash == null){
-                            newHash = new HashMap<String, Integer>();
-                        }
-                        newHash.put(pushedPostRf.getKey(), 0);
-                        currentUser.setUserScorePerCompetition(newHash);
-                        mutableData.setValue(currentUser);
-                        return Transaction.success(mutableData);
-                    }
+                    public void onComplete(@NonNull Task<Void> task) {
+                        mUserRef.runTransaction(new Transaction.Handler() {
+                            @Override
+                            public Transaction.Result doTransaction(MutableData mutableData) {
+                                UserModel currentUser = mutableData.getValue(UserModel.class);
+                                HashMap<String, Integer> newHash = currentUser.getUserScorePerCompetition();
+                                if (newHash == null){
+                                    newHash = new HashMap<String, Integer>();
+                                }
+                                newHash.put(pushedPostRf.getKey(), 0);
+                                currentUser.setUserScorePerCompetition(newHash);
+                                mutableData.setValue(currentUser);
+                                return Transaction.success(mutableData);
+                            }
 
-                    @Override
-                    public void onComplete(DatabaseError databaseError, boolean b, DataSnapshot dataSnapshot) {
-                        if (databaseError != null) {
-                            Log.d(TAG, databaseError.getMessage());
-                        }
+                            @Override
+                            public void onComplete(DatabaseError databaseError, boolean b, DataSnapshot dataSnapshot) {
+                                if (databaseError != null) {
+                                    Log.d(TAG, databaseError.getMessage());
+                                }
+                            }
+                        });
+
+                        database.getReference(COMPET).child(pushedPostRf.getKey()).child("membersMap").child(userId).runTransaction(new Transaction.Handler() {
+                            @Override
+                            public Transaction.Result doTransaction(MutableData mutableData) {
+                                if (mutableData.getValue() == null) {
+                                    return Transaction.success(mutableData);
+                                }
+                                UserModel currentUser = mutableData.getValue(UserModel.class);
+                                HashMap<String, Integer> newHash = currentUser.getUserScorePerCompetition();
+                                if (newHash == null) {
+                                    newHash = new HashMap<String, Integer>();
+                                }
+                                newHash.put(pushedPostRf.getKey(), 0);
+                                currentUser.setUserScorePerCompetition(newHash);
+                                mutableData.setValue(currentUser);
+                                return Transaction.success(mutableData);
+                            }
+
+                            @Override
+                            public void onComplete(DatabaseError databaseError, boolean b, DataSnapshot dataSnapshot) {
+
+                            }
+                        });
                     }
                 });
 
-                database.getReference(COMPET).child(pushedPostRf.getKey()).child("membersMap").child(userId).runTransaction(new Transaction.Handler() {
-                    @Override
-                    public Transaction.Result doTransaction(MutableData mutableData) {
-                        if (mutableData.getValue() == null) {
-                            return Transaction.success(mutableData);
-                        }
-                        UserModel currentUser = mutableData.getValue(UserModel.class);
-                        HashMap<String, Integer> newHash = currentUser.getUserScorePerCompetition();
-                        if (newHash == null) {
-                            newHash = new HashMap<String, Integer>();
-                        }
-                        newHash.put(pushedPostRf.getKey(), 0);
-                        currentUser.setUserScorePerCompetition(newHash);
-                        mutableData.setValue(currentUser);
-                        return Transaction.success(mutableData);
-                    }
-
-                    @Override
-                    public void onComplete(DatabaseError databaseError, boolean b, DataSnapshot dataSnapshot) {
-
-                    }
-                });
 
                 competitionRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
