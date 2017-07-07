@@ -87,6 +87,7 @@ public class HomeCompetition extends Fragment implements AdapterView.OnItemClick
                 textViewligue1.setText(championShipName);
 
 
+
             }
 
             @Override
