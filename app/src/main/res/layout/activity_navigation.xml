@@ -52,7 +52,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
     android:id="@+id/bottomBar"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-
+    app:bb_behavior="shifting"
     android:layout_alignParentBottom="true"
     app:bb_tabXmlResource="@xml/bottombar_tabs_color_changing"
     app:bb_inActiveTabColor="#3F51B4"

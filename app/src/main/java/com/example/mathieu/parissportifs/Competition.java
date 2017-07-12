@@ -39,6 +39,7 @@ public class Competition extends Fragment {
     private String mCompetitionId;
     private FirebaseAuth mAuth;
     private FirebaseUser user;
+    private SuperUserCalendar superUserCalendar;
 
     public static Competition newInstance (String competitonId) {
         Bundle bundle = new Bundle();
@@ -66,9 +67,6 @@ public class Competition extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
-
-
-
 
         /** end after 1 month from now */
         Calendar endDate = Calendar.getInstance();
@@ -103,6 +101,8 @@ public class Competition extends Fragment {
             @Override
             public void onDateSelected(Date date, int position) {
 
+                superUserCalendar = new SuperUserCalendar();
+                superUserCalendar.changeStatus();
                 DateFormat df = new SimpleDateFormat("yyMMdd");
                 String reportDate = df.format(date);
 
@@ -208,7 +208,7 @@ public class Competition extends Fragment {
     private void alertDialogFail(){
 
         new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
-                .setTitleText("Echec !")
+                .setTitleText("0 point !")
                 .setContentText("Tu t'es trompé sur ce pronostique !")
                 .setConfirmText("OK")
                 .showCancelButton(false)
@@ -225,8 +225,8 @@ public class Competition extends Fragment {
     private void alertDialogOnePoints(){
 
         new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
-                .setTitleText("Bravo")
-                .setContentText("Tu as pronostiqué le bon résultat, pas le score exact !")
+                .setTitleText("1 points !")
+                .setContentText("Pas mal ! Tu as pronostiqué le bon résultat mais pas le score exact !")
                 .setConfirmText("OK")
                 .showCancelButton(false)
                 .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
@@ -242,7 +242,7 @@ public class Competition extends Fragment {
     private void alertDialogThreePoints(){
 
         new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
-                .setTitleText("Félicitation")
+                .setTitleText("3 points !")
                 .setContentText("Tu as pronostiqué le résultat exact, INCROYABLE !")
                 .setConfirmText("OK")
                 .showCancelButton(false)

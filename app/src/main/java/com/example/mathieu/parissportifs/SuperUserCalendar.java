@@ -61,7 +61,7 @@ public class SuperUserCalendar extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_super_user_calendar, container, false);
 
-        changeStatus();
+
 
         mGameListView = (ListView) view.findViewById(R.id.gameListSuperUser);
 
@@ -119,7 +119,7 @@ public class SuperUserCalendar extends Fragment {
             @Override
             public void onDateSelected(Date date, int position) {
 
-
+                changeStatus();
                 DateFormat df = new SimpleDateFormat("yyMMdd");
                 String reportDate = df.format(date);
 
@@ -127,7 +127,7 @@ public class SuperUserCalendar extends Fragment {
 
                 GameListAdapter mGameListAdapter = new GameListAdapter(mDatabaseGameRef,getActivity(), R.layout.game_list_items); // APPELLE L'ADAPTER
 
-                mGameListView.setAdapter(mGameListAdapter); //FUSION LIST ET ADAPTER
+                mGameListView.setAdapter(mGameListAdapter);
 
                 mGameListAdapter.notifyDataSetChanged();
 
@@ -171,7 +171,7 @@ public class SuperUserCalendar extends Fragment {
     return gameToday;
     }
 
-    private void changeStatus(){
+    public void changeStatus(){
         final long currentDate_long = System.currentTimeMillis();
         final Date currentDate = new Date(currentDate_long);
         DateFormat dff = new SimpleDateFormat("yyMMdd");
