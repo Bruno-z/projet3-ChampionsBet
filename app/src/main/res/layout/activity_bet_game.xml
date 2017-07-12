@@ -15,8 +15,9 @@
         android:gravity="center"
         android:layout_marginTop="33dp"
         app:layout_constraintTop_toBottomOf="@+id/textViewHour"
-        app:layout_constraintRight_toLeftOf="@+id/textViewAwayTeam"
-        android:layout_marginRight="40dp" />
+        app:layout_constraintLeft_toRightOf="@+id/imageViewHomeTeam"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp" />
 
     <TextView
         android:id="@+id/textViewAwayTeam"
@@ -26,14 +27,15 @@
         android:gravity="center"
         android:text="TextView"
         app:layout_constraintRight_toLeftOf="@+id/imageViewAwayTeam"
-        android:layout_marginRight="4dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="33dp"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHour" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewHour"
+        android:layout_marginEnd="8dp" />
 
     <Button
         android:id="@+id/buttonSaveBet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="173dp"
+        android:layout_height="61dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -43,7 +45,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintVertical_bias="1.0"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <TextView
         android:id="@+id/textViewHour"
@@ -51,10 +57,10 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textStyle="bold"
-        android:layout_marginRight="163dp"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="33dp" />
+        android:layout_marginTop="33dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
         android:id="@+id/textView8"
@@ -62,39 +68,39 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:text="Ton pronostique : "
+        android:layout_marginTop="8dp"
+        android:text="Ton pronostique "
         android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/numberPickerHome" />
+        app:layout_constraintTop_toBottomOf="@+id/numberPickerHome"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <TextView
         android:id="@+id/tvprevbetaway"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="16dp"
         android:text="0"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/tvprevbethome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginRight="65dp"
+        android:layout_marginTop="16dp"
         android:text="0"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.831"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -103,23 +109,22 @@
         android:layout_width="41dp"
         android:layout_height="29dp"
         app:srcCompat="@drawable/angers"
-        app:layout_constraintRight_toLeftOf="@+id/textViewHomeTeam"
-        android:layout_marginRight="0dp"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
         android:layout_marginTop="25dp"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHour" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewHour"
+        android:layout_marginStart="8dp" />
 
     <ImageView
         android:id="@+id/imageViewAwayTeam"
         android:layout_width="41dp"
         android:layout_height="29dp"
         app:srcCompat="@drawable/amiens"
-        android:layout_marginRight="4dp"
+        android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="25dp"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHour" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewHour"
+        android:layout_marginEnd="8dp" />
 
     <biz.borealis.numberpicker.NumberPicker
         android:id="@+id/numberPickerHome"
@@ -133,7 +138,9 @@
 
         app:layout_constraintRight_toLeftOf="@+id/numberPickerAway"
         android:layout_marginRight="8dp"
-        app:layout_constraintHorizontal_bias="0.115" />
+        app:layout_constraintHorizontal_bias="0.115"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="8dp" />
 
     <biz.borealis.numberpicker.NumberPicker
 
@@ -150,6 +157,7 @@
         app:np_text_size_selected="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginEnd="45dp" />
 
 </android.support.constraint.ConstraintLayout>

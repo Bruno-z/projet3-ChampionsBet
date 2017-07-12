@@ -220,7 +220,7 @@ public class NewGameActivity extends AppCompatActivity implements View.OnClickLi
 
     public void updateGame(){
 
-        ourDate = new Date (years-1900, month, date, mHour - 1,mMinute);
+        ourDate = new Date (years-1900, month, date, mHour,mMinute);
         long mydate = ourDate.getTime();
 
         DateFormat df = new SimpleDateFormat("yyMMdd");
